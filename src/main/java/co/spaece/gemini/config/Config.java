@@ -2,6 +2,7 @@ package co.spaece.gemini.config;
 
 import co.spaece.gemini.function.HighestCustomerCountCountryFunction;
 import co.spaece.gemini.function.WeatherFunction;
+import co.spaece.gemini.repository.CustomerRepository;
 import org.springframework.ai.model.function.FunctionCallback;
 import org.springframework.ai.model.function.FunctionCallbackWrapper;
 import org.springframework.context.annotation.Bean;
@@ -20,8 +21,8 @@ public class Config {
 	}
 	
 	@Bean
-	public FunctionCallback countryWithHighestCustomerFunctionInfo() {
-		return FunctionCallbackWrapper.builder(new HighestCustomerCountCountryFunction())
+	public FunctionCallback countryWithHighestCustomerFunctionInfo(CustomerRepository customerRepository) {
+		return FunctionCallbackWrapper.builder(new HighestCustomerCountCountryFunction(customerRepository))
 				.withName("CountryWithHighestCustomerCount")
 				.withDescription("Get the country with the highest customer count")
 				.withSchemaType(FunctionCallbackWrapper.Builder.SchemaType.OPEN_API_SCHEMA)

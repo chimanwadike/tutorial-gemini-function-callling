@@ -1,7 +1,6 @@
 package co.spaece.gemini.service;
 
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.ai.chat.messages.UserMessage;
 import org.springframework.ai.chat.model.ChatResponse;
