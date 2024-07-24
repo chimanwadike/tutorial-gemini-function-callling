@@ -1,5 +1,6 @@
 package co.spaece.gemini.config;
 
+import co.spaece.gemini.function.CustomerCountByCountry;
 import co.spaece.gemini.function.HighestCustomerCountCountryFunction;
 import co.spaece.gemini.function.WeatherFunction;
 import co.spaece.gemini.repository.CustomerRepository;
@@ -11,11 +12,11 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class Config {
 	@Bean
-	public FunctionCallback weatherFunctionInfo() {
+	public FunctionCallback customerCountByCountryFunctionInfo(CustomerRepository customerRepository) {
 		
-		return FunctionCallbackWrapper.builder(new WeatherFunction())
-				.withName("CurrentWeather")
-				.withDescription("Get the current weather in a given location")
+		return FunctionCallbackWrapper.builder(new CustomerCountByCountry(customerRepository))
+				.withName("CustomerCountByCountry")
+				.withDescription("Get the number of customers in a given country")
 				.withSchemaType(FunctionCallbackWrapper.Builder.SchemaType.OPEN_API_SCHEMA)
 				.build();
 	}
