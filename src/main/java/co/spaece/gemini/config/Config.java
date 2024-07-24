@@ -2,7 +2,6 @@ package co.spaece.gemini.config;
 
 import co.spaece.gemini.function.CustomerCountByCountry;
 import co.spaece.gemini.function.HighestCustomerCountCountryFunction;
-import co.spaece.gemini.function.WeatherFunction;
 import co.spaece.gemini.repository.CustomerRepository;
 import org.springframework.ai.model.function.FunctionCallback;
 import org.springframework.ai.model.function.FunctionCallbackWrapper;

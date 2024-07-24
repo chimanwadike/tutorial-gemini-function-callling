@@ -24,18 +24,6 @@ public class Customer {
 	Double outstanding_amount;
 	String phone_no;
 	
-	@ManyToOne
-	@JoinColumn(name = "agent_id")
-	Agent agent;
-	
-	public Agent getAgent() {
-		return agent;
-	}
-	
-	public void setAgent(Agent agent) {
-		this.agent = agent;
-	}
-	
 	public String getId() {
 		return id;
 	}
