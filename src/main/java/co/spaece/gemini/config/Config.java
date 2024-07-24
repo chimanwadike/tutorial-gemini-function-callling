@@ -1,6 +1,7 @@
 package co.spaece.gemini.config;
 
-import co.spaece.gemini.service.WeatherService;
+import co.spaece.gemini.function.HighestCustomerCountCountryFunction;
+import co.spaece.gemini.function.WeatherFunction;
 import org.springframework.ai.model.function.FunctionCallback;
 import org.springframework.ai.model.function.FunctionCallbackWrapper;
 import org.springframework.context.annotation.Bean;
@@ -11,10 +12,19 @@ public class Config {
 	@Bean
 	public FunctionCallback weatherFunctionInfo() {
 		
-		return FunctionCallbackWrapper.builder(new WeatherService())
-				.withName("CurrentWeather") // (1) function name
-				.withDescription("Get the current weather in a given location") // (2) function description
-				.withSchemaType(FunctionCallbackWrapper.Builder.SchemaType.OPEN_API_SCHEMA) // (3) schema type. Compulsory for Gemini function calling.
+		return FunctionCallbackWrapper.builder(new WeatherFunction())
+				.withName("CurrentWeather")
+				.withDescription("Get the current weather in a given location")
+				.withSchemaType(FunctionCallbackWrapper.Builder.SchemaType.OPEN_API_SCHEMA)
+				.build();
+	}
+	
+	@Bean
+	public FunctionCallback countryWithHighestCustomerFunctionInfo() {
+		return FunctionCallbackWrapper.builder(new HighestCustomerCountCountryFunction())
+				.withName("CountryWithHighestCustomerCount")
+				.withDescription("Get the country with the highest customer count")
+				.withSchemaType(FunctionCallbackWrapper.Builder.SchemaType.OPEN_API_SCHEMA)
 				.build();
 	}
 }

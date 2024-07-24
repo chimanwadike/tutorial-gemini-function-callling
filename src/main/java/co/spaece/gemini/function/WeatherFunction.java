@@ -1,4 +1,4 @@
-package co.spaece.gemini.service;
+package co.spaece.gemini.function;
 
 import java.util.function.Function;
 
@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyDescription;
 
 @JsonClassDescription("Get the weather in location")
-public class WeatherService implements Function<WeatherService.Request, WeatherService.Response> {
+public class WeatherFunction implements Function<WeatherFunction.Request, WeatherFunction.Response> {
 	/**
 	 * Temperature units.
 	 */
