@@ -9,10 +9,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyDescription;
 
 @JsonClassDescription("Get the number of customers in a given country")
-public class CustomerCountByCountry implements Function<CustomerCountByCountry.Request, CustomerCountByCountry.Response> {
+public class CustomerCountByCountryFunction implements Function<CustomerCountByCountryFunction.Request, CustomerCountByCountryFunction.Response> {
 	private final CustomerRepository customerRepository;
 	
-	public CustomerCountByCountry(CustomerRepository customerRepository) {
+	public CustomerCountByCountryFunction(CustomerRepository customerRepository) {
 		this.customerRepository = customerRepository;
 	}
 	

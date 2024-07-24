@@ -19,6 +19,7 @@ public class ChatService {
 		this.promptOptions = VertexAiGeminiChatOptions.builder()
 				.withFunction("CountryWithHighestCustomerCount")
 				.withFunction("CustomerCountByCountry")
+				.withFunction("CustomerWithHighestOutstandingDebt")
 				.build();
 	}
 	

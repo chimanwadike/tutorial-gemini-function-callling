@@ -7,10 +7,10 @@ import com.fasterxml.jackson.annotation.JsonClassDescription;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 @JsonClassDescription("Get the country with the highest number of customers")
-public class HighestCustomerCountCountryFunction implements Function<HighestCustomerCountCountryFunction.Request, HighestCustomerCountCountryFunction.Response> {
+public class CountryWithHighestCustomerCountFunction implements Function<CountryWithHighestCustomerCountFunction.Request, CountryWithHighestCustomerCountFunction.Response> {
 	private final CustomerRepository customerRepository;
 	
-	public HighestCustomerCountCountryFunction(CustomerRepository customerRepository) {
+	public CountryWithHighestCustomerCountFunction(CustomerRepository customerRepository) {
 		this.customerRepository = customerRepository;
 	}
 	
